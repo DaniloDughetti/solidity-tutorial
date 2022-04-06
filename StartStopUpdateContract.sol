@@ -28,4 +28,9 @@ contract StartStopUpdateContract {
         return address(this).balance;
     }
 
+    function destroy(address payable _to) public {
+        require(owner == msg.sender, "You are not the owner");
+        selfdestruct(_to); //not working
+    }
+
 }
